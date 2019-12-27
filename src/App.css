@@ -2,17 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -24,15 +13,27 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.word-cloud {
+  height: 500px;
+  width: 500px;
+  border-radius: 50%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+svg {
+  transform: scale(1.5);
+  position: relative;
+  top: 0px;
+  left: -100px;
+}
+
+svg:hover {
+  cursor: pointer;
+}
+
+svg:active {
+  transform: scale(2);
+  position: fixed;
+  background: rgba(34, 34, 34, 1);
+  top: 220px;
+  left: 420px;
 }
