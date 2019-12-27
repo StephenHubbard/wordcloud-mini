@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project, we will go over how to use a 3rd party npm package and convert our data to be compatible with their formatting.
+In this project, we will learn how to create a word cloud using a 3rd party npm package and convert our data to be compatible with their formatting.
 
 ## Setup
 
