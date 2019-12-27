@@ -69,7 +69,7 @@ In this step, we'll begin to write our function that transforms our data.json fi
 * Create a function called getWords.  
 * Create a variable called 'myObject' and set it to this.state.allWords.wordCloud.
 * Create another variable called 'words', and set it to an empty array.
-* Write a function that loops over every key value pair in our data and puts it in the correct object format that react-d3-cloud can interpret, pushing it into our emptry array 'words'.  Hint: {text: "", value: 0,}
+* Write a function that loops over every key value pair in our data and puts it in the correct object format that react-d3-cloud can interpret, pushing it into our emptry array 'words'.  Hint: {text: "", value: 0}
 * Set our state variable 'cloudWords' to our current new array of words.
 
 ### Solution
