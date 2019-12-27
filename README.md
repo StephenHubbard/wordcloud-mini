@@ -99,7 +99,7 @@ export default class WordCloudComp extends Component {
         const words = [
             {
             text: "", 
-            value: 0,
+            value: 0
             }
         ]
 
@@ -117,8 +117,14 @@ export default class WordCloudComp extends Component {
 
 <details>
 
-<summary> <code> Detailed Instructions </code> </summary>
+<summary> <code> Detailed Instructions/Explanation </code> </summary>
 
--Let's break down what the function getWords() is doing.
+<br />
+
+-  Let's break down what the function getWords() is doing.
+-  For the react-d3 library to properly interpret the data.  We need to transform our data.json file data into the proper {text: "example", value: 8} format.  Where "text" is the word in string value, and "value" is the amount of times it's inserted into the data.  i.e., the bigger the value, the bigger the word will appear in the word cloud.  
+- We begin by writing a for loop, and looping through it 1000 times, the amount of words in our data file.  Instead the for loop, we push each individual key value pair into our empty array as an object.  
+- We use Object.keys and Object.values to select each part of our data set correctly (Please see MDN docs for more info on using this two methods.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys & https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values).  
+- Reminder: We surround our text value in back ticks to ensure the value is pushed in as a string.
 
 </details>
