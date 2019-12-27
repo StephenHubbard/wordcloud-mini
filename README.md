@@ -19,28 +19,45 @@ In this step, we'll install massive into our project and require it in `index.js
 ### Instructions
 
 * We'll be using the npm package react-d3-cloud.  Docs can be found here for further understanding (https://www.npmjs.com/package/react-d3-cloud).
-*
+* Open the src folder and get familiar with the file structure. 
+* npm install npm install react-d3-cloud.
+* Open WordCloudComponent.js and import our data.json file, as well as importing our react-d3-cloud package.
+* In our ComponentDidMount function, Set our data.json file to state as 'allWords'.  
 
 ### Solution
 
 <details>
 
-<summary> <code> index.js </code> </summary>
+<summary> <code> WordCloudComponent.js </code> </summary>
 
 ```js
-require("dotenv").config();
-const express = require("express");
-const massive = require("massive");
+import React, {Component} from 'react';
+import WordCloud from 'react-d3-cloud';
+import data from './data.json';
 
-const app = express();
 
-const { SERVER_PORT } = process.env;
 
-app.use(express.json());
+export default class WordCloudComp extends Component {
+    state = {
+        allWords: [],
+        cloudWords: [],
+    }
 
-app.listen(SERVER_PORT, () => {
-  console.log(`Server listening on port ${SERVER_PORT}`);
-});
+    componentDidMount() {
+        this.setState({
+            allWords: data
+        })
+    }
+    
+    
+    render() {
+        return(
+            <div>
+                
+            </div>
+        )
+    }
+}
 
 ```
 
