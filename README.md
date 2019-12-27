@@ -1,68 +1,47 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img src="https://s3.amazonaws.com/devmountain/readme-logo.png" width="250" align="right">
 
-## Available Scripts
+# Project Summary
 
-In the project directory, you can run:
+In this project, we will go over how to use a 3rd party npm package and convert our data to be compatible with their formatting.
 
-### `npm start`
+## Setup
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Fork and clone this project.
+* cd into it.
+* npm install to install project packages.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Step 1
 
-### `npm test`
+### Summary
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+In this step, we'll install massive into our project and require it in `index.js`.
 
-### `npm run build`
+### Instructions
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* We'll be using the npm package react-d3-cloud.  Docs can be found here for further understanding (https://www.npmjs.com/package/react-d3-cloud).
+*
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Solution
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<details>
 
-### `npm run eject`
+<summary> <code> index.js </code> </summary>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```js
+require("dotenv").config();
+const express = require("express");
+const massive = require("massive");
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const app = express();
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+const { SERVER_PORT } = process.env;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+app.use(express.json());
 
-## Learn More
+app.listen(SERVER_PORT, () => {
+  console.log(`Server listening on port ${SERVER_PORT}`);
+});
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+</details>
