@@ -135,9 +135,9 @@ Now let's call this function at the end of our componentDidMount function, after
 ### Instructions
 
 * Turn our componentDidMount function into an asynchronous function using async and await.  We do this to ensure the function getWords() only fires after state is properly set.
-* Display and set up our <WordCloud /> inside of the return() section of our component using proper d3 syntax (https://www.npmjs.com/package/react-d3-cloud)
-* Our <WordCloud /> will take in four props that comes with the package.  1) data = Will be equal to our data set we want to display.  2) fontSizeMapper = Maps over each element of data to a selected font size in pixels.  3) rotate = Rotates each word up to a certain degree.  3) padding = Padding given to each word to reduce the amount of clutter we choose in pixels.
-* Create our variables fontSizeMapper and rotate inside the render section of our component, so that <WordCloud /> can access them propertly.  
+* Display and set up our WordCloud inside of the return() section of our component using proper d3 syntax (https://www.npmjs.com/package/react-d3-cloud)
+* Our WordCloud will take in four props that comes with the package.  1) data = Will be equal to our data set we want to display.  2) fontSizeMapper = Maps over each element of data to a selected font size in pixels.  3) rotate = Rotates each word up to a certain degree.  3) padding = Padding given to each word to reduce the amount of clutter we choose in pixels.
+* Create our variables fontSizeMapper and rotate inside the render section of our component, so that WordCloud can access them propertly.  
 
 
 ### Solution
