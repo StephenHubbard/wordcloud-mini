@@ -76,6 +76,8 @@ In this step, we'll being to write our function that transforms our data.json fi
 * Create another variable called 'words', and set it to an empty array.
 * Write a function that loops over every key value pair in our data and puts it in the correct object format that react-d3-cloud can interpret, pushing it into our emptry array 'words'.  Hint: {text: "", value: 0,}
 * Set our state variable 'cloudWords' to our current new array of words.
+
+### Solution
   
 <details>
 
@@ -123,8 +125,92 @@ export default class WordCloudComp extends Component {
 
 -  Let's break down what the function getWords() is doing.
 -  For the react-d3 library to properly interpret the data.  We need to transform our data.json file data into the proper {text: "example", value: 8} format.  Where "text" is the word in string value, and "value" is the amount of times it's inserted into the data.  i.e., the bigger the value, the bigger the word will appear in the word cloud.  
-- We begin by writing a for loop, and looping through it 1000 times, the amount of words in our data file.  Instead the for loop, we push each individual key value pair into our empty array as an object.  
+- We begin by writing a for loop, and looping through it 1000 times, the amount of words in our data file.  Inside the for loop, we push each individual key value pair into our empty array as an object.  
 - We use Object.keys and Object.values to select each part of our data set correctly (Please see MDN docs for more info on using this two methods.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys & https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values).  
 - Reminder: We surround our text value in back ticks to ensure the value is pushed in as a string.
+
+</details>
+
+## Step 3
+
+### Summary
+
+Now let's call this function at the end of our componentDidMount function, after we set state correctly.
+
+### Instructions
+
+* Turn our componentDidMount function into an asynchronous function using async and await.  We do this to ensure the function getWords() only fires after state is properly set.
+* Display and set up our <WordCloud /> inside of return() section of our component using proper d3 syntax (https://www.npmjs.com/package/react-d3-cloud)
+* Our <WordCloud /> will take in four props that comes with the package.  1) data = which will be equal to our data set we want to display.  2) fontSizeMapper = Maps over each element of data to a selected font size in pixels.  3) rotate = Rotates each word up to a certain degree.  3) padding = padding given to each word to reduce the amount of clutter we choose in pixels.
+* Create our variables fontSizeMapper and rotate inside the render section of our component, so that <WordCloud /> can access them propertly.  
+
+
+### Solution
+  
+<details>
+
+<summary> <code> WordCloudComponent.js </code> </summary>
+
+```js
+import React, {Component} from 'react';
+import WordCloud from 'react-d3-cloud';
+import data from './data.json';
+
+export default class WordCloudComp extends Component {
+    state = {
+        allWords: [],
+        cloudWords: [],
+    }
+
+    async componentDidMount() {
+        await this.setState({
+            allWords: data
+        })
+        await this.getWords()
+    }
+    
+    getWords() {
+        let myObject = this.state.allWords.wordCloud
+        const words = [
+            {
+            text: "", 
+            value: 0,
+            }
+        ]
+
+        for (let i = 0; i < 1000; i ++) {
+            words.push({text: `${Object.keys(myObject)[i]}`, value: Object.values(myObject)[i]})
+        }
+
+        this.setState({
+            cloudWords: words,
+        })
+    }
+
+    render() {
+    
+        const fontSizeMapper = word => Math.log2(word.value) * 3;
+        const rotate = word => word.value % 90;
+        
+        return(
+            <div>
+                <div className="doughnut-cont">
+                    <div>
+                        <div className="word-cloud">
+                            <WordCloud
+                                data={this.state.cloudWords}
+                                fontSizeMapper={fontSizeMapper}
+                                rotate={rotate}
+                                padding="1px"
+                            />
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        )
+    }
+}
+
+```
 
 </details>
