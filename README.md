@@ -214,3 +214,15 @@ export default class WordCloudComp extends Component {
 ```
 
 </details>
+
+## Contributions
+
+If you see a problem or a typo, please fork, make the necessary changes, and create a pull request so we can review your changes and merge them into the master repo and branch.
+
+## Notes
+
+This project was created for the sole purpose as an optional project done by Stephen Hubbard to apply for a DevMountain mentor position. 
+
+<p align="center">
+<img src="https://s3.amazonaws.com/devmountain/readme-logo.png" width="250">
+</p>
