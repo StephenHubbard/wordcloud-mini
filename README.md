@@ -37,7 +37,6 @@ import data from './data.json';
 export default class WordCloudComp extends Component {
     state = {
         allWords: [],
-        cloudWords: [],
     }
 
     componentDidMount() {
