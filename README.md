@@ -8,13 +8,13 @@ In this project, we will go over how to use a 3rd party npm package and convert 
 
 * Fork and clone this project.
 * cd into it.
-* npm install to install project packages.
+* run npm install.
 
 ## Step 1
 
 ### Summary
 
-In this step, we'll install massive into our project and require it in `index.js`.
+In this step, we'll install react-d3-cloud and import our data set.
 
 ### Instructions
 
@@ -67,11 +67,11 @@ export default class WordCloudComp extends Component {
 
 ### Summary
 
-In this step, we'll being to write our function that transforms our data.json file into the correct format so that the react-d3 library can properly interpret and display the data.
+In this step, we'll begin to write our function that transforms our data.json file into the correct format so that the react-d3 library can properly interpret and display the data.
 
 ### Instructions
 
-* Create a function called convertData.  
+* Create a function called getWords.  
 * Create a variable called 'myObject' and set it to this.state.allWords.wordCloud.
 * Create another variable called 'words', and set it to an empty array.
 * Write a function that loops over every key value pair in our data and puts it in the correct object format that react-d3-cloud can interpret, pushing it into our emptry array 'words'.  Hint: {text: "", value: 0,}
@@ -124,9 +124,9 @@ export default class WordCloudComp extends Component {
 <br />
 
 -  Let's break down what the function getWords() is doing.
--  For the react-d3 library to properly interpret the data.  We need to transform our data.json file data into the proper {text: "example", value: 8} format.  Where "text" is the word in string value, and "value" is the amount of times it's inserted into the data.  i.e., the bigger the value, the bigger the word will appear in the word cloud.  
+-  For the react-d3 library to properly interpret the data, we need to transform our data.json file data into the proper {text: "example", value: 8} format.  Where "text" is the word in string value, and "value" is the amount of times it's inserted into the data.  i.e., the bigger the value, the bigger the word will appear in the word cloud.  
 - We begin by writing a for loop, and looping through it 1000 times, the amount of words in our data file.  Inside the for loop, we push each individual key value pair into our empty array as an object.  
-- We use Object.keys and Object.values to select each part of our data set correctly (Please see MDN docs for more info on using this two methods.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys & https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values).  
+- We use Object.keys and Object.values to select each part of our data set correctly (Please see MDN docs for more info on using these two methods.  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys & https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values).  
 - Reminder: We surround our text value in back ticks to ensure the value is pushed in as a string.
 
 </details>
@@ -140,8 +140,8 @@ Now let's call this function at the end of our componentDidMount function, after
 ### Instructions
 
 * Turn our componentDidMount function into an asynchronous function using async and await.  We do this to ensure the function getWords() only fires after state is properly set.
-* Display and set up our <WordCloud /> inside of return() section of our component using proper d3 syntax (https://www.npmjs.com/package/react-d3-cloud)
-* Our <WordCloud /> will take in four props that comes with the package.  1) data = which will be equal to our data set we want to display.  2) fontSizeMapper = Maps over each element of data to a selected font size in pixels.  3) rotate = Rotates each word up to a certain degree.  3) padding = padding given to each word to reduce the amount of clutter we choose in pixels.
+* Display and set up our <WordCloud /> inside of the return() section of our component using proper d3 syntax (https://www.npmjs.com/package/react-d3-cloud)
+* Our <WordCloud /> will take in four props that comes with the package.  1) data = Will be equal to our data set we want to display.  2) fontSizeMapper = Maps over each element of data to a selected font size in pixels.  3) rotate = Rotates each word up to a certain degree.  3) padding = Padding given to each word to reduce the amount of clutter we choose in pixels.
 * Create our variables fontSizeMapper and rotate inside the render section of our component, so that <WordCloud /> can access them propertly.  
 
 
