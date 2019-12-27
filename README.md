@@ -35,8 +35,6 @@ import React, {Component} from 'react';
 import WordCloud from 'react-d3-cloud';
 import data from './data.json';
 
-
-
 export default class WordCloudComp extends Component {
     state = {
         allWords: [],
@@ -48,7 +46,6 @@ export default class WordCloudComp extends Component {
             allWords: data
         })
     }
-    
     
     render() {
         return(
