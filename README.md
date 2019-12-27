@@ -7,8 +7,7 @@ In this project, we will go over how to use a 3rd party npm package and convert 
 ## Setup
 
 * Fork and clone this project.
-* cd into it.
-* run npm install.
+* Run npm install.
 
 ## Step 1
 
